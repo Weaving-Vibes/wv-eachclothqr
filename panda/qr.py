@@ -1,16 +1,3 @@
-"""
-Weaving Vibes — Fabric QR Code Generator
-------------------------------------------
-Generates a styled QR code (with WV logo embedded in the center)
-for each fabric's GitHub Pages link.
-
-Usage:
-    python3 generate_qr.py
-
-To add more fabrics later, just add entries to the FABRICS dict below
-and re-run. Each one outputs a PNG named after the fabric.
-"""
-
 import os
 import qrcode
 from qrcode.image.styledpil import StyledPilImage
