@@ -1,14 +1,3 @@
-"""
-Weaving Vibes — QR Code Generator
-Generates branded QR codes with logo centered.
-
-Install deps:
-    pip install qrcode[pil] Pillow
-
-Usage:
-    python generate_qr.py
-"""
-
 import os
 import qrcode
 from qrcode.image.styledpil import StyledPilImage
@@ -19,7 +8,7 @@ from PIL import Image
 
 FABRICS = {
     "panda":  "https://weaving-vibes.github.io/wv-eachclothqr/panda/",
-    # "tiger": "https://weaving-vibes.github.io/wv-eachclothqr/tiger/",
+    
 }
 
 SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
@@ -38,10 +27,7 @@ OUTPUT_SIZE = 1200
 # ── HELPERS ───────────────────────────────────────────────────────────────────
 
 def load_logo(path: str, target_size: int) -> Image.Image:
-    """
-    Load logo, make it square with white padding, resize to target_size.
-    The white padding creates a quiet zone so the logo doesn't eat QR modules.
-    """
+    
     logo = Image.open(path).convert("RGBA")
 
     # Fit inside a square, preserving aspect ratio
