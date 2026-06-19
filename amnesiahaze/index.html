@@ -719,6 +719,45 @@
     margin-bottom: 28px;
     font-weight: 300;
   }
+  .modal-product-lock {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    background: var(--green-light);
+    border: 1px solid rgba(44,74,46,0.18);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .modal-product-lock svg {
+    width: 12px;
+    height: 12px;
+    stroke: var(--green-dark);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .form-group input.error,
+  .form-group select.error { border-color: #c0392b; }
+
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .form-error {
+    text-align: center;
+    font-size: 12px;
+    color: #c0392b;
+    margin-top: 10px;
+    font-weight: 400;
+    display: none;
+  }
 
   .form-group {
     margin-bottom: 16px;
@@ -901,17 +940,17 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-img" src="static/DSC00387.jpg" alt="London Pie Hemp Fabric">
+  <img class="hero-img" src="Amnesia Haze4.jpg" alt="London Pie Hemp Fabric">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Collection 2026</div>
     <h1 class="hero-title">Amnesia <em>Haze</em></h1>
-    <p class="hero-subtitle">Ready Colours · 100% Hemp</p>
+    <p class="hero-subtitle">Natural Colour · Hemp + Tencel</p>
     <div class="hero-specs">
-      <span class="spec-pill">130–140 GSM</span>
-      <span class="spec-pill">Plain/Woven</span>
-      <span class="spec-pill">58" Width</span>
-      <span class="spec-pill">Hemp + Tencel</span>
+        <span class="spec-pill">130–140 GSM</span>
+        <span class="spec-pill">Plain / Woven</span>
+        <span class="spec-pill">58" Width</span>
+        <span class="spec-pill">Hemp + Tencel</span>
     </div>
   </div>
   <div class="scroll-hint">
@@ -923,15 +962,15 @@
 <!-- ABOUT -->
 <section class="about">
   <div class="section-eyebrow fade-up">The Story</div>
-  <h2 class="about-title fade-up">Nature holds<br>its <em>colour deep.</em></h2>
+  <h2 class="about-title fade-up">Structure meets, <br><em>silken drape.</em></h2>
   <p class="about-body fade-up">
-    A premium fabric blend of Hemp and Tencel, perfect for clothing and home decor. Our eco-friendly Hemp requires minimal water and no pesticides, enriching the soil it grows in.
+    Amnesia Haze: a premium fabric blend of Hemp and Tencel, perfect for clothing and home decor. Our eco-friendly Hemp requires minimal water and no pesticides, enriching the soil it grows in. With inherent antimicrobial and UV-resistant properties, it gets softer and stronger with each wash.
   </p>
   <blockquote class="about-highlight fade-up">
-    "On hemp, colour absorbs into the fibre to create tones that feel rich, not superficial."
+    "Hemp gives it body. Tencel gives it flow. Together, they don't fight each other."
   </blockquote>
   <div class="about-tags fade-up">
-    <span class="about-tag">Azo-Free Dyes</span>
+    <span class="about-tag">Closed-Loop Tencel</span>
     <span class="about-tag">Skin Safe</span>
     <span class="about-tag">Biodegradable</span>
     <span class="about-tag">Ethically Sourced</span>
@@ -943,7 +982,7 @@
 <div class="lifestyle">
   <div class="lifestyle-block">
     <div class="lifestyle-img-wrap">
-      <img src="static/women.jpg" alt="Woman wearing London Pie fabric">
+      <img src="Amnesia Haze-F.png" alt="Woman wearing London Pie fabric">
       <span class="lifestyle-img-label">Women's Wear</span>
     </div>
     <div class="lifestyle-info">
@@ -955,7 +994,7 @@
           </div>
           <div>
             <strong>Use Cases</strong>
-            Dresses, Shirts, Blouses, Co-ord sets, Skirts, Outerwear layers
+            Dresses, Blouses, Co-ord sets, Drapey skirts, Resortwear, Outerwear layers
           </div>
         </li>
         <li class="fade-up">
@@ -963,8 +1002,8 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
           <div>
-            <strong>All-Season Comfort</strong>
-            Breathable in summers, naturally insulating in cooler months — hemp adapts.
+            <strong>SMOOTH, BREATHABLE FEEL</strong>
+            Tencel's fine fibre structure feels smoother on skin than conventional cotton.
           </div>
         </li>
         <li class="fade-up">
@@ -973,7 +1012,7 @@
           </div>
           <div>
             <strong>Skin-Kind Fabric</strong>
-            Hypoallergenic, free from harsh chemicals. Gentle on sensitive skin.
+            Hypoallergenic and gentle — Tencel is recognised as suitable for sensitive, eczema-prone skin.
           </div>
         </li>
         <li class="fade-up">
@@ -992,7 +1031,7 @@
   <!-- MAN LIFESTYLE -->
   <div class="lifestyle-block">
     <div class="lifestyle-img-wrap man-wrap">
-      <img src="static/man.jpg" alt="Man wearing London Pie fabric">
+      <img src="Amnesia Haze-M.png" alt="Man wearing London Pie fabric">
       <span class="lifestyle-img-label">Men's Wear</span>
     </div>
     <div class="lifestyle-info alt">
@@ -1004,7 +1043,7 @@
           </div>
           <div>
             <strong>Use Cases</strong>
-            Blazers, Shirts, Trousers, Kurtas, Shorts, Structured jackets
+            Shirts, Overshirts, Trousers, Kurtas, Structured jackets, Resortwear
           </div>
         </li>
         <li class="fade-up">
@@ -1012,8 +1051,8 @@
             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
           </div>
           <div>
-            <strong>Durability</strong>
-            Hemp is 3× stronger than cotton — garments that last, reducing the need to replace.
+            <strong>Durability with drape</strong>
+            Hemp's tensile strength balanced by Tencel's smooth, fluid finish.
           </div>
         </li>
         <li class="fade-up">
@@ -1031,7 +1070,7 @@
           </div>
           <div>
             <strong>Customisable</strong>
-            Custom weaves, widths, and blends available. Built for your collection.
+            Custom blend ratios, weaves, and widths available. Built for your collection.
           </div>
         </li>
       </ul>
@@ -1045,34 +1084,32 @@
   <h2 class="section-title">Hemp doesn't<br><em>just feel good.</em></h2>
   <div class="stats-grid">
     <div class="stat-card fade-up">
+      <div class="stat-number">99%+</div>
+      <div class="stat-label">solvent recovered and reused in Tencel's closed-loop process</div>
+    </div>
+    <div class="stat-card fade-up">
       <div class="stat-number">50%</div>
-      <div class="stat-label">less water than conventional cotton</div>
+      <div class="stat-label">more moisture absorption than cotton (from Tencel content)</div>
     </div>
     <div class="stat-card fade-up">
-      <div class="stat-number">40%</div>
-      <div class="stat-label">less CO₂ than linen production</div>
+      <div class="stat-number">FSC</div>
+      <div class="stat-label">certified wood pulp sourcing for the Tencel component</div>
     </div>
     <div class="stat-card fade-up">
-      <div class="stat-number">3×</div>
-      <div class="stat-label">stronger fibre than cotton</div>
-    </div>
-    <div class="stat-card fade-up">
-      <div class="stat-number">0</div>
-      <div class="stat-label">pesticides used in cultivation</div>
+      <div class="stat-number">30 days</div>
+      <div class="stat-label">biodegradation time reported for Tencel fibre</div>
     </div>
   </div>
   <div class="stats-ticker">
     <div class="ticker-inner" id="ticker">
       <div class="ticker-item"><span class="ticker-dot"></span> <span>100%</span> biodegradable</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> <span>Closed-loop Tencel process</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span> <span>Naturally biodegradable</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span> <span>FSC-certified wood pulp</span></div>
       <div class="ticker-item"><span class="ticker-dot"></span> Exported to <span>20+</span> countries</div>
-      <div class="ticker-item"><span class="ticker-dot"></span> <span>50 years</span> textile heritage</div>
       <div class="ticker-item"><span class="ticker-dot"></span> Azo-<span>free</span> dyes only</div>
-      <div class="ticker-item"><span class="ticker-dot"></span> <span>58"</span> fabric width</div>
-      <div class="ticker-item"><span class="ticker-dot"></span> <span>100%</span> biodegradable</div>
-      <div class="ticker-item"><span class="ticker-dot"></span> Exported to <span>20+</span> countries</div>
-      <div class="ticker-item"><span class="ticker-dot"></span> <span>50 years</span> textile heritage</div>
-      <div class="ticker-item"><span class="ticker-dot"></span> Azo-<span>free</span> dyes only</div>
-      <div class="ticker-item"><span class="ticker-dot"></span> <span>58"</span> fabric width</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> <span>Hemp strength,</span> Tencel drape</div>
+      
     </div>
   </div>
 </section>
@@ -1081,7 +1118,7 @@
 <section class="cta-section">
   <div class="cta-eyebrow">Get Started</div>
   <h2 class="cta-title">Touch it.<br>Try it.<br><em>Order it.</em></h2>
-  <p class="cta-body">Request a free swatch of London Pie. We'll send it with full specs, pricing, and a direct line to our team.</p>
+  <p class="cta-body">Request a free swatch of Amnesia Haze. We'll send it with full specs, pricing, and a direct line to our team.</p>
   <button class="cta-btn" onclick="openModal()">
     Request a free sample
     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1107,7 +1144,11 @@
 
     <div id="formContent">
       <h2 class="modal-title">Request a<br><em>Free Sample</em></h2>
-      <p class="modal-sub">We'll send London Pie to your door — no strings attached.</p>
+      <p class="modal-sub">We'll send this fabric to your door — no strings attached.</p>
+      <div class="modal-product-lock" id="productLock">
+        <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <span id="productLockText">Amnesia Haze</span>
+      </div>
 
       <div class="form-group">
         <label>Your Name</label>
@@ -1129,38 +1170,49 @@
         <label>City</label>
         <input type="text" id="f-city" placeholder="Mumbai, Delhi, Bengaluru...">
       </div>
-      <div class="form-group">
+      <div class="form-group" id="colorGroup" style="display:none;">
         <label>Colour Preference</label>
         <select id="f-color">
           <option value="">Select a colour</option>
-          <option>Molten Lava</option>
-          <option>Illuminating</option>
-          <option>Copper Coin</option>
-          <option>Candy Pink</option>
-          <option>Bleached Aqua</option>
-          <option>Mock Orange</option>
-          <option>Blue Ribbon</option>
-          <option>Lime Cream</option>
-          <option>Woodbine</option>
         </select>
       </div>
 
-      <button class="form-submit" onclick="submitForm()">Send My Request →</button>
+      <button class="form-submit" id="submitBtn" onclick="submitForm()">Send My Request →</button>
+      <p class="form-error" id="formError"></p>
       <p class="form-note">We typically respond within 24 hours.</p>
     </div>
 
     <div class="success-msg" id="successMsg">
-      <div class="tick">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
+      <div class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h3>Request sent!</h3>
-      <p>We'll get your London Pie swatch out to you soon. Expect a message from our team shortly.</p>
+      <p>We'll get your fabric swatch out to you soon. Expect a message from our team shortly.</p>
     </div>
   </div>
 </div>
 
 <script>
-  // Modal
+  const PRODUCT_NAME = "Amnesia Haze";
+  const COLOUR_OPTIONS = [];
+
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzTCFOQjZbEJkEB9eAvRoYU1VRpgR1Rm9pz_YLx62YiK66bN9gUekFncK03-HPDAeH--Q/exec';
+
+  document.getElementById('productLockText').textContent = PRODUCT_NAME;
+
+  const colorGroup = document.getElementById('colorGroup');
+  const colorSelect = document.getElementById('f-color');
+
+  if (COLOUR_OPTIONS.length > 0) {
+    COLOUR_OPTIONS.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      colorSelect.appendChild(opt);
+    });
+    colorGroup.style.display = '';
+  } else {
+    colorGroup.style.display = 'none';
+  }
+
   function openModal() {
     document.getElementById('modalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1175,21 +1227,55 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
 
-  // Form submit → Google Sheets (replace URL below)
-  function submitForm() {
-    const name = document.getElementById('f-name').value.trim();
+  function clearErrors() {
+    ['f-name', 'f-brand', 'f-email', 'f-phone', 'f-city', 'f-color'].forEach(id => {
+      document.getElementById(id).classList.remove('error');
+    });
+    const errEl = document.getElementById('formError');
+    errEl.style.display = 'none';
+    errEl.textContent = '';
+  }
+
+  function showError(message, fieldIds) {
+    const errEl = document.getElementById('formError');
+    errEl.textContent = message;
+    errEl.style.display = 'block';
+    fieldIds.forEach(id => document.getElementById(id).classList.add('error'));
+  }
+
+  async function submitForm() {
+    clearErrors();
+
+    const name  = document.getElementById('f-name').value.trim();
     const brand = document.getElementById('f-brand').value.trim();
     const email = document.getElementById('f-email').value.trim();
     const phone = document.getElementById('f-phone').value.trim();
-    const city = document.getElementById('f-city').value.trim();
-    const color = document.getElementById('f-color').value;
+    const city  = document.getElementById('f-city').value.trim();
+    const color = COLOUR_OPTIONS.length > 0 ? colorSelect.value : '';
 
-    if (!name || !email || !phone) {
-      alert('Please fill in Name, Email, and WhatsApp number.');
+    const missing = [];
+    if (!name) missing.push('f-name');
+    if (!brand) missing.push('f-brand');
+    if (!city) missing.push('f-city');
+
+    if (missing.length > 0) {
+      showError('Please fill in Name, Brand/Company, and City.', missing);
       return;
     }
 
-    const SHEET_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // 🔁 Replace this
+    if (!email && !phone) {
+      showError('Please provide your Email or WhatsApp number (at least one).', ['f-email', 'f-phone']);
+      return;
+    }
+
+    if (COLOUR_OPTIONS.length > 0 && !color) {
+      showError('Please select a colour preference.', ['f-color']);
+      return;
+    }
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
     const formData = new FormData();
     formData.append('name', name);
@@ -1198,25 +1284,36 @@
     formData.append('phone', phone);
     formData.append('city', city);
     formData.append('color', color);
-    formData.append('fabric', 'London Pie');
-    formData.append('timestamp', new Date().toISOString());
+    formData.append('product', PRODUCT_NAME);
 
-    fetch(SHEET_URL, { method: 'POST', body: formData })
-      .catch(() => {}); // Silent fail — still show success
+    try {
+      await fetch(SHEET_URL, { method: 'POST', body: formData, mode: 'no-cors' });
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
 
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-
-    setTimeout(() => {
-      closeModal();
       setTimeout(() => {
-        document.getElementById('formContent').style.display = 'block';
-        document.getElementById('successMsg').style.display = 'none';
-      }, 400);
-    }, 3000);
+        closeModal();
+        setTimeout(() => {
+          document.getElementById('formContent').style.display = 'block';
+          document.getElementById('successMsg').style.display = 'none';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send My Request →';
+          document.getElementById('f-name').value = '';
+          document.getElementById('f-brand').value = '';
+          document.getElementById('f-email').value = '';
+          document.getElementById('f-phone').value = '';
+          document.getElementById('f-city').value = '';
+          colorSelect.value = '';
+        }, 400);
+      }, 3000);
+
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send My Request →';
+      showError('Something went wrong sending your request. Please try again.', []);
+    }
   }
 
-  // Scroll fade-up
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
