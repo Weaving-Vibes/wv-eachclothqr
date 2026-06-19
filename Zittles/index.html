@@ -719,6 +719,45 @@
     margin-bottom: 28px;
     font-weight: 300;
   }
+  .modal-product-lock {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    background: var(--green-light);
+    border: 1px solid rgba(44,74,46,0.18);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .modal-product-lock svg {
+    width: 12px;
+    height: 12px;
+    stroke: var(--green-dark);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .form-group input.error,
+  .form-group select.error { border-color: #c0392b; }
+
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .form-error {
+    text-align: center;
+    font-size: 12px;
+    color: #c0392b;
+    margin-top: 10px;
+    font-weight: 400;
+    display: none;
+  }
 
   .form-group {
     margin-bottom: 16px;
@@ -1028,7 +1067,7 @@
 <section class="cta-section">
   <div class="cta-eyebrow">Get Started</div>
   <h2 class="cta-title">Touch it.<br>Try it.<br><em>Order it.</em></h2>
-  <p class="cta-body">Request a free swatch of London Pie. We'll send it with full specs, pricing, and a direct line to our team.</p>
+  <p class="cta-body">Request a free swatch of Zittles. We'll send it with full specs, pricing, and a direct line to our team.</p>
   <button class="cta-btn" onclick="openModal()">
     Request a free sample
     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1054,7 +1093,11 @@
 
     <div id="formContent">
       <h2 class="modal-title">Request a<br><em>Free Sample</em></h2>
-      <p class="modal-sub">We'll send London Pie to your door — no strings attached.</p>
+      <p class="modal-sub">We'll send this fabric to your door — no strings attached.</p>
+      <div class="modal-product-lock" id="productLock">
+        <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <span id="productLockText">Zittles</span>
+      </div>
 
       <div class="form-group">
         <label>Your Name</label>
@@ -1076,38 +1119,49 @@
         <label>City</label>
         <input type="text" id="f-city" placeholder="Mumbai, Delhi, Bengaluru...">
       </div>
-      <div class="form-group">
+      <div class="form-group" id="colorGroup" style="display:none;">
         <label>Colour Preference</label>
         <select id="f-color">
           <option value="">Select a colour</option>
-          <option>Molten Lava</option>
-          <option>Illuminating</option>
-          <option>Copper Coin</option>
-          <option>Candy Pink</option>
-          <option>Bleached Aqua</option>
-          <option>Mock Orange</option>
-          <option>Blue Ribbon</option>
-          <option>Lime Cream</option>
-          <option>Woodbine</option>
         </select>
       </div>
 
-      <button class="form-submit" onclick="submitForm()">Send My Request →</button>
+      <button class="form-submit" id="submitBtn" onclick="submitForm()">Send My Request →</button>
+      <p class="form-error" id="formError"></p>
       <p class="form-note">We typically respond within 24 hours.</p>
     </div>
 
     <div class="success-msg" id="successMsg">
-      <div class="tick">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
+      <div class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h3>Request sent!</h3>
-      <p>We'll get your London Pie swatch out to you soon. Expect a message from our team shortly.</p>
+      <p>We'll get your fabric swatch out to you soon. Expect a message from our team shortly.</p>
     </div>
   </div>
 </div>
 
 <script>
-  // Modal
+  const PRODUCT_NAME = "Zittles";
+  const COLOUR_OPTIONS = [];
+
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzTCFOQjZbEJkEB9eAvRoYU1VRpgR1Rm9pz_YLx62YiK66bN9gUekFncK03-HPDAeH--Q/exec';
+
+  document.getElementById('productLockText').textContent = PRODUCT_NAME;
+
+  const colorGroup = document.getElementById('colorGroup');
+  const colorSelect = document.getElementById('f-color');
+
+  if (COLOUR_OPTIONS.length > 0) {
+    COLOUR_OPTIONS.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      colorSelect.appendChild(opt);
+    });
+    colorGroup.style.display = '';
+  } else {
+    colorGroup.style.display = 'none';
+  }
+
   function openModal() {
     document.getElementById('modalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1122,21 +1176,55 @@
     if (e.target === document.getElementById('modalOverlay')) closeModal();
   }
 
-  // Form submit → Google Sheets (replace URL below)
-  function submitForm() {
-    const name = document.getElementById('f-name').value.trim();
+  function clearErrors() {
+    ['f-name', 'f-brand', 'f-email', 'f-phone', 'f-city', 'f-color'].forEach(id => {
+      document.getElementById(id).classList.remove('error');
+    });
+    const errEl = document.getElementById('formError');
+    errEl.style.display = 'none';
+    errEl.textContent = '';
+  }
+
+  function showError(message, fieldIds) {
+    const errEl = document.getElementById('formError');
+    errEl.textContent = message;
+    errEl.style.display = 'block';
+    fieldIds.forEach(id => document.getElementById(id).classList.add('error'));
+  }
+
+  async function submitForm() {
+    clearErrors();
+
+    const name  = document.getElementById('f-name').value.trim();
     const brand = document.getElementById('f-brand').value.trim();
     const email = document.getElementById('f-email').value.trim();
     const phone = document.getElementById('f-phone').value.trim();
-    const city = document.getElementById('f-city').value.trim();
-    const color = document.getElementById('f-color').value;
+    const city  = document.getElementById('f-city').value.trim();
+    const color = COLOUR_OPTIONS.length > 0 ? colorSelect.value : '';
 
-    if (!name || !email || !phone) {
-      alert('Please fill in Name, Email, and WhatsApp number.');
+    const missing = [];
+    if (!name) missing.push('f-name');
+    if (!brand) missing.push('f-brand');
+    if (!city) missing.push('f-city');
+
+    if (missing.length > 0) {
+      showError('Please fill in Name, Brand/Company, and City.', missing);
       return;
     }
 
-    const SHEET_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // 🔁 Replace this
+    if (!email && !phone) {
+      showError('Please provide your Email or WhatsApp number (at least one).', ['f-email', 'f-phone']);
+      return;
+    }
+
+    if (COLOUR_OPTIONS.length > 0 && !color) {
+      showError('Please select a colour preference.', ['f-color']);
+      return;
+    }
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
     const formData = new FormData();
     formData.append('name', name);
@@ -1145,25 +1233,36 @@
     formData.append('phone', phone);
     formData.append('city', city);
     formData.append('color', color);
-    formData.append('fabric', 'London Pie');
-    formData.append('timestamp', new Date().toISOString());
+    formData.append('product', PRODUCT_NAME);
 
-    fetch(SHEET_URL, { method: 'POST', body: formData })
-      .catch(() => {}); // Silent fail — still show success
+    try {
+      await fetch(SHEET_URL, { method: 'POST', body: formData, mode: 'no-cors' });
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
 
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-
-    setTimeout(() => {
-      closeModal();
       setTimeout(() => {
-        document.getElementById('formContent').style.display = 'block';
-        document.getElementById('successMsg').style.display = 'none';
-      }, 400);
-    }, 3000);
+        closeModal();
+        setTimeout(() => {
+          document.getElementById('formContent').style.display = 'block';
+          document.getElementById('successMsg').style.display = 'none';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send My Request →';
+          document.getElementById('f-name').value = '';
+          document.getElementById('f-brand').value = '';
+          document.getElementById('f-email').value = '';
+          document.getElementById('f-phone').value = '';
+          document.getElementById('f-city').value = '';
+          colorSelect.value = '';
+        }, 400);
+      }, 3000);
+
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send My Request →';
+      showError('Something went wrong sending your request. Please try again.', []);
+    }
   }
 
-  // Scroll fade-up
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
