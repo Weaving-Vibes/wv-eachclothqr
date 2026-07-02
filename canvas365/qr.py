@@ -6,7 +6,7 @@ from qrcode.image.styles.colormasks import SolidFillColorMask
 from PIL import Image
 
 FABRICS = {
-    "foilprint": "https://weaving-vibes.github.io/wv-eachclothqr/foilprint/",
+    "canvas365": "https://weaving-vibes.github.io/wv-eachclothqr/canvas365/",
 }
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
