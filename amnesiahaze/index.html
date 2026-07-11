@@ -513,10 +513,8 @@
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 1fr;
     gap: 16px;
     margin-bottom: 32px;
-    align-items: stretch;
   }
 
   .stat-card {
@@ -527,10 +525,6 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   .stat-card::before {
@@ -551,10 +545,6 @@
     overflow-wrap: normal;
     word-break: normal;
     hyphens: none;
-  }
-
-  .stat-number.small {
-    font-size: 26px;
   }
 
   .stat-label {
